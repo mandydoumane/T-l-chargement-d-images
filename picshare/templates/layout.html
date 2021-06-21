@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <title> Share your pics and comment others </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width"/>
+		<link rel="stylesheet " type="text/css " href="{{ url_for('static', filename='main.css') }}">
+    {% endblock head %}
+</head>
+
+<body>
+    <!-- #menu --> 
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1>Scrumshare</h1>
+			</div>
+		</div>
+	</div>
+	<div id="menu-wrapper">
+		<div id="menu">
+			<ul class="current_page_item">
+				<li><a href="http://127.0.0.1:5000"> Home </a></li>
+				<li><a class= "upload" href="http://127.0.0.1:5000/upload"> Upload </a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end #menu --> 
+
+	<div id="wrapper"> 
+		<div id="page">
+			{% block content %}
+				<div id="sidebar">
+					<h2>Categories:</h2>
+					{% for cat in cat_list %}
+						<ul>
+							<a id="category" href="http://127.0.0.1:5000/category?category={{ cat[0] }}">
+								<li>{{ cat[0] }}</li>
+							</a>
+						</ul>
+					{% endfor %}
+				</div>
+				{% for picture in all_pictures %}
+					<a href="http://127.0.0.1:5000/vue_picture/{{picture[0]}}"><img src="{{ config['UPLOAD_FOLDER'] }}/{{ picture[1] }}"  alt="{{picture[3]}}" 
+					width=500></a>
+				{% endfor %}
+			{% endblock content %}
+		</div>
+	</div>
+
+<footer>
+    <div id="footer">
+        <!-- Réseaux sociaux -->
+        <!--<ul>
+                <li><a href="https://twitter.com/"> Twitter </a></li>
+                <li><a href="https://facebook.com/"> Facebook </a></li>
+                <li><a href="https://www.linkedin.com/"> Linkedin </a></li>
+            </ul>-->
+    <!-- Copyright -->
+		<p>Picshare. All rights reserved</p>
+    </div>  
+</footer>
+
+</body>
+</html>

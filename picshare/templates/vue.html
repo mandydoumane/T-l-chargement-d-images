@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for picture in picture %}
+        <h1 class="title">{{picture[2]}}</h1>
+        <img src="{{ config['UPLOAD_FOLDER'] }}/{{ picture[1] }}" class="img"></br>
+            <div class="description-vue">
+                <p>{{picture[3]}}</p>
+                <p>{{picture[4]}}</p>
+            </div>
+
+    {% endfor %}
+
+        <div id="form-div">
+            <h1 class="namecomment">Comments</h1>
+            <div class="message">
+                <div class="com">
+                    {%  if  message  %}
+                        {% for com in message %}
+                            <p> {{ com[0] }} </p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <form method=post enctype=multipart/form-data id="form-one" class="form">
+                <label for="comment"><h2 class="h2comment">Add a new comment : </h2></label>
+                <p class="text">
+                    <input type=text name="comment" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="My message is"></input>
+                </p>
+                <div class="submit">
+                    <input type="submit" value="Submit" id="button-bottom"/>
+                    <div class="ease"></div>
+                </div>
+            </form>
+        </div>
+
+
+{% endblock content %}

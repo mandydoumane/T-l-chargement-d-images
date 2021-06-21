@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="formh1">
+        <h1> Upload new File </h1>
+    </div>
+        <div class="formupload">
+            <div id="form-div">
+                <form method=post enctype=multipart/form-data id="form-one" class="form">
+                    <p class="text">
+                        <input type=file name=file class="uploadfile"></br>
+                        <label class="formtext"> Title: </label>
+                        <input type=text name='title' class="uploadtitle"></br>
+                        <label class="formtext"> Description: </label>
+                        <input type=text name='description' class="uploaddesc">
+                        <label for="category-select" class="formtext">Choose a category: </label>
+                        <select name="category">
+                            <option value="option">--Choose an option--</option>
+                            <option value="Animals">Animals</option>
+                            <option value="Travel">Travels</option>
+                            <option value="World">World</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </p>
+                    <div class="submit">
+                        <input type=submit value=Upload id="button-bottom">
+                    </div>
+                    <div class="ease"></div>
+                </form>
+            </div>
+        </div>
+{% endblock content %}
+

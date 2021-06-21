@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1> All images from category: {{ recup_category }}</h1>
+    {% for pic in pic_from_cat %}
+        <img src="{{ config['UPLOAD_FOLDER'] }}/{{ pic[0] }}"
+        width=700 class="catimg">
+    {% endfor %}
+
+{% endblock content %}
